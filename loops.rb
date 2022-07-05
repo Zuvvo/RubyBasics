@@ -30,3 +30,7 @@ until i > 50 do
   print i
   i += 1
 end
+
+"B".upto("F"){|c| puts c}
+
+1..3.times {|i|puts "iteration #{i}"}

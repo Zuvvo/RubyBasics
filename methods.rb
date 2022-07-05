@@ -23,3 +23,5 @@ if (number_1.is_a? Integer) && (number_2.is_a? Integer)
   puts "combined comparision: " + combined_comparision(number_1, number_2).to_s
 end
 
+x = 15
+puts x.respond_to?(:next)
