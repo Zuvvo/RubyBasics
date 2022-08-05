@@ -46,3 +46,44 @@ def random_select(array, n)
 end
 
 print random_select([1, 2, 3, 4, 5], 3)
+
+def kaprekar?(k)
+  string_number = (k ** 2).to_s
+  left_numbers = string_number.length.even? ? (string_number.length / 2) : (string_number.length / 2).to_i
+  return string_number[0, left_numbers].to_i + string_number[left_numbers, string_number.length].to_i == k
+end
+
+def kaprekar_monk_solution?(k)
+  no_of_digits = k.to_s.size
+  square = (k ** 2).to_s
+
+  second_half = square[-no_of_digits..-1]
+  first_half = square.size.even? ? square[0..no_of_digits-1] : square[0..no_of_digits-2]
+
+  k == first_half.to_i + second_half.to_i
+end
+
+kaprekar_number = 297
+puts "Kaprekar number #{kaprekar_number}: #{kaprekar?(kaprekar_number)}"
+
+def sum_of_cubes(a, b)
+  result = 0
+  for i in a..b
+    result = result + i * i * i
+  end
+  result
+end
+
+def sum_of_cubes_solution(a, b)
+  (a..b).inject(0) { |sum, x| sum += (x*x*x) }
+end
+
+puts sum_of_cubes_solution(3,5)
+
+def array_of_fixnums?(array)
+  array.all?{|el| el.is_a? Fixnum}
+end
+
+puts array_of_fixnums?([2,3, "xxc"])
+
+5.abs
